@@ -28,7 +28,7 @@ jobs:
         cache: maven
     
     - name: Run tests with specific suite
-      run: mvn clean test -Dsuite=${{ github.event.inputs.suite }}
+      run: mvn clean test -fn -Dsuite=${{ github.event.inputs.suite }}
       
     - name: Get Allure history
       uses: actions/checkout@v3

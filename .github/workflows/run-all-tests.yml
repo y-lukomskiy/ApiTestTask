@@ -22,8 +22,8 @@ jobs:
         cache: maven
     
     - name: Run tests
-      run: mvn clean test
-      
+      run: mvn clean test -fn
+
     - name: Get Allure history
       uses: actions/checkout@v3
       if: always()
