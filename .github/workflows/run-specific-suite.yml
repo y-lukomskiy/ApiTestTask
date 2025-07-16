@@ -1,4 +1,4 @@
-name: Run Specific Test Suite and Publish Allure Report
+name: Run Specific Test Suite
 
 on:
   workflow_dispatch:
@@ -48,6 +48,7 @@ jobs:
 
     - name: Deploy report to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
+      if: always()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
