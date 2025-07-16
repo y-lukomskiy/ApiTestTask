@@ -44,12 +44,20 @@ jobs:
         allure_history: allure-history
         keep_reports: 5
 
+    - name: Check report files
+      if: always()
+      run: |
+        echo "Checking report directory..."
+        ls -la ./target/allure-results
+        echo "Checking for index.html..."
+        find ./target/allure-results-name "index.html"    
+
     - name: Deploy report to GitHub Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: ./target/site/allure-maven-plugin
+        publish_dir: ./allure-report
         force_orphan: true
         keep_files: true
