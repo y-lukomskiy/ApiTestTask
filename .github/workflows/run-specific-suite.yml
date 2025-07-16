@@ -30,7 +30,9 @@ jobs:
         cache: maven
 
     - name: Run tests with specific suite
-      run: mvn clean test -fn -Dsuite=${{ github.event.inputs.suite }}
+      run: |
+        mvn clean test -Dsuite=${{ github.event.inputs.suite }} || true
+      continue-on-error: true
 
     - name: Get Allure history
       uses: actions/checkout@v3
@@ -49,8 +51,8 @@ jobs:
         keep_reports: 5
 
     - name: Deploy report to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
       if: always()
+      uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
