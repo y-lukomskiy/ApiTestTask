@@ -1,14 +1,13 @@
 package api.modeldataproviders;
 
 import api.models.BookModel;
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 import static api.utils.DateTimeUtils.formatDateTime;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class BookModelProvider extends GenericDataProvider {
 
     public static BookModel getValidBookModel() {

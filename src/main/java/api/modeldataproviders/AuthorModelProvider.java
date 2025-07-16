@@ -1,10 +1,9 @@
 package api.modeldataproviders;
 
 import api.models.AuthorModel;
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class AuthorModelProvider extends GenericDataProvider {
 
     public static AuthorModel getValidAuthorModel() {
