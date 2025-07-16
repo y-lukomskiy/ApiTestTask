@@ -48,6 +48,13 @@ jobs:
       run: |
         allure generate target/allure-results --clean -o allure-report
 
+    - name: Debug report contents before deploy
+      if: always()
+      run: |
+       echo "Final report contents:"
+       find ./allure-report
+       ls -l ./allure-report
+
     - name: Check report files
       if: always()
       run: |
@@ -68,4 +75,3 @@ jobs:
         publish_branch: gh-pages
         publish_dir: ./allure-report
         force_orphan: true
-        keep_files: true
