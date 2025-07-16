@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Run all api tests" verbose="1" configfailurepolicy="continue" thread-count="3" parallel="methods"
+       data-provider-thread-count="1">
+    <test name="Run all api tests">
+        <classes>
+            <class name="api.AuthorApiTests"/>
+            <class name="api.BookApiTests"/>
+        </classes>
+    </test>
+</suite>

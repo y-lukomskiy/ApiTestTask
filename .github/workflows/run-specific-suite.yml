@@ -1,0 +1,55 @@
+name: Run Specific Test Suite and Publish Allure Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Test specific suite to run'
+        required: true
+        default: 'book_tests'
+        type: choice
+        options:
+          - book_tests
+          - author_tests
+          - all_api_tests
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
+    
+    - name: Run tests with specific suite
+      run: mvn clean test -Dsuite=${{ github.event.inputs.suite }}
+      
+    - name: Get Allure history
+      uses: actions/checkout@v3
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+    
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: target/allure-results
+        allure_history: allure-history
+        keep_reports: 5
+    
+    - name: Deploy report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./allure-history
