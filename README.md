@@ -49,6 +49,8 @@ src/
 
 ## API Endpoints Tested
 
+This project tests the [Fake REST API](https://fakerestapi.azurewebsites.net/index.html), which provides a sandbox environment for testing REST API clients.
+
 ### Books API
 - GET /api/v1/Books - Get all books
 - GET /api/v1/Books/{id} - Get book by ID
@@ -56,7 +58,7 @@ src/
 - PUT /api/v1/Books/{id} - Update an existing book
 - DELETE /api/v1/Books/{id} - Delete a book
 
-### Authors API (Planned)
+### Authors API
 - GET /api/v1/Authors - Get all authors
 - GET /api/v1/Authors/{id} - Get author by ID
 - POST /api/v1/Authors - Create a new author
