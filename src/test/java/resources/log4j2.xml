@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="\n%d{yyyy-MM-dd HH:mm:ss} %-level %logger - %msg%n%throwable"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+        <Logger name="org.hibernate" level="ERROR">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+    </Loggers>
+</Configuration>
