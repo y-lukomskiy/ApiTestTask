@@ -1,5 +1,5 @@
 name: Run Specific Test Suite
-run-name: Run Specific Test Suite - type=${{github.event.inputs.suite}}
+run-name: Run Specific Test Suite - ${{github.event.inputs.suite}}
 
 on:
   workflow_dispatch:
