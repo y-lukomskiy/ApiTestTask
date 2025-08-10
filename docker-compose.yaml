@@ -1,0 +1,8 @@
+services:
+  tests:
+    build: .
+    volumes:
+      - maven_data:/app/target
+
+volumes:
+  maven_data:

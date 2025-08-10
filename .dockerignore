@@ -1,0 +1,28 @@
+# Version control
+.git
+.github
+.gitignore
+
+# IDE files
+.idea
+*.iml
+.vscode
+.settings
+.project
+.classpath
+
+# Build output
+target/
+allure-report/
+allure-results/
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.docker
+
+# Logs
+*.log
+
+# Other
+README.md
